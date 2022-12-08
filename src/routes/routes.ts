@@ -1,45 +1,20 @@
 /**
- * {@link https://reactjs.org/docs/code-splitting.html}
+ * {@link https://ui.dev/react-router-nested-routes}
  */
 
 import { lazy } from "react";
 
-//Importación de componente sin lazyload
-import { LazyPage3 } from "../01-lazyload/pages";
-// Importación de componente mediante lazyload
-// Indicar webpackChunkName para renombar el archivo por defecto de chunk
-// chunk es un conjunto de datos que descompone el problema para su paralelización
-const Lazy1 = lazy(
+import { NoLazy } from "../01-lazyload/pages/NoLazy";
+
+const LazyLayout = lazy(
     () =>
         import(
-            /* webpackChunkName: "LazyPage1" */
-            "../01-lazyload/pages/LazyPage1"
-        )
-);
-const Lazy2 = lazy(
-    () =>
-        import(
-            /* webpackChunkName: "LazyPage2" */
-            "../01-lazyload/pages/LazyPage2"
-        )
-);
-const Lazy3 = lazy(
-    () =>
-        import(
-            /* webpackChunkName: "LazyPage3" */
-            "../01-lazyload/pages/LazyPage3"
+            /* webpackChunkName: "LazyLayout" */
+            "../01-lazyload/layout/LazyLayout"
         )
 );
 
-//Usamos "type" para abreviar la interface en Component
 type JSXComponent = () => JSX.Element;
-/* 
-interface JSXComponent {
-    (): JSX.Element;
-}
-*/
-
-// "Components" se indica con MAYUS porque JSX.Element espera una variable con MAYUS
 interface Route {
     to: string;
     path: string;
@@ -47,23 +22,19 @@ interface Route {
     name: string;
 }
 
+// "/lazyload/*" Mediante el * indicamos que cualquier ruta interna en
+// el componente < LazyLayout /> tenga el prefijo /lazyload/
 export const routes: Route[] = [
     {
-        to: "/lazy1",
-        path: "lazy1",
-        Component: Lazy1,
-        name: "Lazy-1",
+        to: "/lazyload",
+        path: "/lazyload/*",
+        Component: LazyLayout,
+        name: "Lazy Layout - Dash",
     },
     {
-        to: "/lazy2",
-        path: "lazy2",
-        Component: Lazy2,
-        name: "Lazy-2",
-    },
-    {
-        to: "/lazy3",
-        path: "lazy3",
-        Component: Lazy3,
-        name: "Lazy-3",
+        to: "/no-lazy",
+        path: "no-lazy",
+        Component: NoLazy,
+        name: "No Lazy",
     },
 ];
