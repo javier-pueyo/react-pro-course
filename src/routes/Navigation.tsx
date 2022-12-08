@@ -1,5 +1,4 @@
 // npm i react-router-dom@6
-
 import {
     BrowserRouter as Router,
     Routes,
@@ -7,6 +6,12 @@ import {
     NavLink,
     Navigate,
 } from "react-router-dom";
+
+import {
+    LazyPage1,
+    LazyPage2,
+    LazyPage3,
+} from "../01-lazyload/pages";
 
 import logo from "../logo.svg";
 
@@ -16,43 +21,43 @@ export const Navigation = () => {
             <div className="main-layout">
                 <nav>
                     <img src={logo} alt="React Logo" />
-                </nav>
 
-                <ul>
-                    <li>
-                        <NavLink
-                            to="/"
-                            className={({ isActive }) =>
-                                isActive ? "nav-active" : ""
-                            }
-                        >
-                            Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about">About</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/user">User</NavLink>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <NavLink
+                                to="/lazy1"
+                                className={({ isActive }) =>
+                                    isActive ? "nav-active" : ""
+                                }
+                            >
+                                Lazy1
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/lazy2">Lazy2</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/lazy3">Lazy3</NavLink>
+                        </li>
+                    </ul>
+                </nav>
 
                 <Routes>
                     <Route
-                        path="about"
-                        element={<h1>About Page</h1>}
+                        path="lazy1"
+                        element={<LazyPage1 />}
                     ></Route>
                     <Route
-                        path="user"
-                        element={<h1>Users Page</h1>}
+                        path="lazy2"
+                        element={<LazyPage2 />}
                     ></Route>
                     <Route
-                        path="home"
-                        element={<h1>Home Page</h1>}
+                        path="lazy3"
+                        element={<LazyPage3 />}
                     ></Route>
                     <Route
                         path="/*"
-                        element={<Navigate to="/home" replace />}
+                        element={<Navigate to="/lazy1" replace />}
                     ></Route>
                 </Routes>
             </div>
