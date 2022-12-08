@@ -2,7 +2,8 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
-    "prettier.bracketSameLine": false,
-    "prettier.printWidth": 70,
-    "prettier.tabWidth": 4
+    "prettier.bracketSameLine": true,
+    "prettier.printWidth": 80,
+    "prettier.tabWidth": 4,
+    "prettier.singleAttributePerLine": false
 }
