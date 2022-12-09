@@ -1,0 +1,26 @@
+{
+    "usesTypeScript": true,
+    "usesCssModule": true,
+    "cssPreprocessor": "scss",
+    "testLibrary": "Testing Library",
+    "component": {
+        "default": {
+            "customTemplates": {
+                "component": "templates/component/index.tsx"
+            },
+            "path": "src/02-component-patterns/components",
+            "withLazy": false,
+            "withStory": false,
+            "withStyle": false,
+            "withTest": false,
+            "withIndex": true
+        },
+        "page": {
+            "path": "src/02-component-patterns/pages",
+            "withLazy": false,
+            "withStory": false,
+            "withStyle": false,
+            "withTest": false
+        }
+    }
+}

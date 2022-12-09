@@ -4,15 +4,7 @@
 
 import { lazy } from "react";
 
-import { NoLazy } from "../01-lazyload/pages/NoLazy";
-
-const LazyLayout = lazy(
-    () =>
-        import(
-            /* webpackChunkName: "LazyLayout" */
-            "../01-lazyload/layout/LazyLayout"
-        )
-);
+import { ShoppingPage } from "../02-component-patterns/pages/ShoppingPage";
 
 type JSXComponent = () => JSX.Element;
 interface Route {
@@ -26,15 +18,9 @@ interface Route {
 // el componente < LazyLayout /> tenga el prefijo /lazyload/
 export const routes: Route[] = [
     {
-        to: "/lazyload",
-        path: "/lazyload/*",
-        Component: LazyLayout,
-        name: "Lazy Layout - Dash",
-    },
-    {
-        to: "/no-lazy",
-        path: "no-lazy",
-        Component: NoLazy,
-        name: "No Lazy",
+        to: "/",
+        path: "/",
+        Component: ShoppingPage,
+        name: "ShoppingPage",
     },
 ];
