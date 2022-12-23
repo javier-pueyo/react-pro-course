@@ -10,13 +10,13 @@ otro nombre al ProductCard original
 import { ProductCard as ProductCardHOC } from "./ProductCard";
 
 import { ProductButtons } from "./ProductButton";
-import { ProductCardHOCProps } from "../interfaces/interfaces";
+import { IProductCardHOCProps } from "../interfaces/interfaces";
 import { ProductImage } from "./ProductImage";
 import { ProductTitle } from "./ProductTitle";
 
 // Creación de un nuevo ProductCard mediante Object.assign
 // fusionando el original con un objeto anónimo con tres propiedades(componentes).
-export const ProductCard: ProductCardHOCProps = Object.assign(ProductCardHOC, {
+export const ProductCard: IProductCardHOCProps = Object.assign(ProductCardHOC, {
     Buttons: ProductButtons,
     Image: ProductImage,
     Title: ProductTitle,
