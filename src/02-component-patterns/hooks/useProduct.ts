@@ -14,14 +14,7 @@ export const useProduct = ({
 }: useProductArgs) => {
     const [counter, setCounter] = useState<number>(value);
 
-    const isControlled = useRef(Boolean(onChangeEvent));
-
     const increaseBy = (value: number) => {
-        if (isControlled.current) {
-            //"!" Indica a typescript que siempre tendrá ese valor
-            return onChangeEvent!({ count: value, product });
-        }
-
         const newvalue = Math.max(counter + value, 0);
         setCounter(newvalue);
 
