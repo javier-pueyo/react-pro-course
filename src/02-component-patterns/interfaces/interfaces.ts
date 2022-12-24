@@ -13,6 +13,7 @@ export interface IProductContextProps {
     counter: number;
     product: IProduct;
     increaseBy: (value: number) => void;
+    initialValues: IInitialValues;
 }
 
 export interface IProductCardHOCProps {
@@ -22,11 +23,26 @@ export interface IProductCardHOCProps {
     Title: (Props: ProductTitleProps) => JSX.Element;
 }
 
-export interface onChangeArgs {
+export interface IonChangeArgs {
     product: IProduct;
     count: number;
 }
 
 export interface IProductInCart extends IProduct {
     count: number;
+}
+
+export interface IInitialValues {
+    count?: number;
+    maxCount?: number;
+}
+
+export interface IProductCardHandlers {
+    count: number;
+    isMaxCountReached: boolean;
+    maxCount?: number;
+    product: IProduct;
+
+    increaseBy: (value: number) => void;
+    reset: () => void;
 }
