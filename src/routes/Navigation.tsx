@@ -21,7 +21,11 @@ export const Navigation = () => {
                     <ul>
                         {routes.map(({ nameLink, to }, index) => {
                             return (
-                                <li key={index}>
+                                <li
+                                    key={JSON.stringify(
+                                        nameLink + index
+                                    )}
+                                >
                                     <NavLink
                                         to={to}
                                         className={({ isActive }) =>
@@ -42,7 +46,7 @@ export const Navigation = () => {
                     {routes.map(({ Component, path }, index) => {
                         return (
                             <Route
-                                key={index}
+                                key={JSON.stringify(path + index)}
                                 path={path}
                                 element={<Component />}
                             ></Route>
