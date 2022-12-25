@@ -27,6 +27,10 @@ export const useProductCart = () => {
         return null;
     };
 
+    const updateProductsCart2 = () => {
+        return "";
+    };
+
     const updateProductsCart = ({
         newCount,
         product,
@@ -51,5 +55,6 @@ export const useProductCart = () => {
     return {
         productsCart,
         updateProductsCart,
+        updateProductsCart2,
     };
 };

@@ -2,6 +2,7 @@ export interface IContextProductCard {
     counter?: number;
     product?: IProduct;
     incrementCounter: (value: number) => void;
+    incrementCounter2: any;
 }
 
 export interface IProduct {
@@ -22,7 +23,6 @@ export interface IProductInCart {
 export interface IStateProductCart {
     [key: string]: IProductInCart;
 }
-
 export interface IComponent {
     className?: string;
 }
