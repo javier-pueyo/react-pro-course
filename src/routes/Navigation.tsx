@@ -8,6 +8,8 @@ import {
     Navigate,
 } from "react-router-dom";
 
+import { routes } from "./routes";
+
 import logo from "../logo.svg";
 
 export const Navigation = () => {
@@ -16,43 +18,42 @@ export const Navigation = () => {
             <div className="main-layout">
                 <nav>
                     <img src={logo} alt="React Logo" />
+                    <ul>
+                        {routes.map(({ nameLink, to }, index) => {
+                            return (
+                                <li key={index}>
+                                    <NavLink
+                                        to={to}
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? "nav-active"
+                                                : ""
+                                        }
+                                    >
+                                        {nameLink}
+                                    </NavLink>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </nav>
 
-                <ul>
-                    <li>
-                        <NavLink
-                            to="/"
-                            className={({ isActive }) =>
-                                isActive ? "nav-active" : ""
-                            }
-                        >
-                            Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/about">About</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/user">User</NavLink>
-                    </li>
-                </ul>
-
                 <Routes>
-                    <Route
-                        path="about"
-                        element={<h1>About Page</h1>}
-                    ></Route>
-                    <Route
-                        path="user"
-                        element={<h1>Users Page</h1>}
-                    ></Route>
-                    <Route
-                        path="home"
-                        element={<h1>Home Page</h1>}
-                    ></Route>
+                    {routes.map(({ Component, path }, index) => {
+                        return (
+                            <Route
+                                key={index}
+                                path={path}
+                                element={<Component />}
+                            ></Route>
+                        );
+                    })}
+
                     <Route
                         path="/*"
-                        element={<Navigate to="/home" replace />}
+                        element={
+                            <Navigate to={routes[0].to} replace />
+                        }
                     ></Route>
                 </Routes>
             </div>
