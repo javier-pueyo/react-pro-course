@@ -1,6 +1,6 @@
 import "../styles/styles.css";
 
-export default function RegisterPage() {
+export const RegisterPage = () => {
     return (
         <div>
             <h1>RegisterPage</h1>
@@ -16,4 +16,4 @@ export default function RegisterPage() {
             </form>
         </div>
     );
-}
+};
