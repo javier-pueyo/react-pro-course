@@ -17,7 +17,7 @@ export const MyTextinput = ({ label, ...props }: IProps) => {
 
     return (
         <div>
-            <label htmlFor={props.id || props.name}></label>
+            <label className="text-label" htmlFor={props.id || props.name}>{ label }</label>
             {/* Enviamos las props necesitarias de formik al input para manejarlo */}
             <input className="text-input" {...field} {...props} />
             <ErrorMessage
