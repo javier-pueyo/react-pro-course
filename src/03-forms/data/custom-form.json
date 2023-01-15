@@ -1,6 +1,6 @@
 [
   {
-    "type": "input",
+    "type": "text",
     "name": "firstName",
     "placeholder": "Fernando",
     "label": "first Name",
@@ -16,7 +16,7 @@
     ]
   },
   {
-    "type": "input",
+    "type": "text",
     "name": "lastName",
     "placeholder": "Fernando",
     "label": "last Name",
@@ -38,8 +38,7 @@
         "type": "required"
       },
       {
-        "type": "email",
-        "value": ""
+        "type": "email"
       }
     ]
   },

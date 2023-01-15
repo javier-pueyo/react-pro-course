@@ -1,0 +1,6 @@
+{
+  "text": {
+    "required": "Esta campo es requerido",
+    "email": "El email no tiene un formato válido"
+  }
+}

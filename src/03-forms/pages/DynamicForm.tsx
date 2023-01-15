@@ -2,6 +2,7 @@ import { Formik, Form, FormikHelpers, FormikValues } from "formik";
 import { MySelect, MyTextinput } from "../components";
 import formJson from "../data/custom-form.json";
 import * as Yup from "yup";
+import { text } from "../data/validations-default.json";
 
 const initialValues: { [key: string]: any } = {};
 const requiredFields: { [key: string]: any } = {};
@@ -15,7 +16,7 @@ for (const input of formJson) {
 
   for (const rule of input.validations) {
     if (rule.type === "required") {
-      schema = schema.required("Este campo es requerido");
+      schema = schema.required(text.required);
     }
     if (rule.type === "minLength") {
       schema = schema.min(
@@ -24,7 +25,7 @@ for (const input of formJson) {
       );
     }
     if (rule.type === "email") {
-      schema = schema.email("El email no tiene un formato válido");
+      schema = schema.email(text.email);
     }
   }
 
